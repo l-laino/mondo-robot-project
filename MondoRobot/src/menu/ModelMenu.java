@@ -13,6 +13,9 @@ public class ModelMenu {
 		this.dim = 0;
 		this.support = new PropertyChangeSupport(this);
 	}
+	public int getDim() {
+		return this.dim;
+	}
 	public void setDim(int d) {
 		int temp = this.dim;
 		this.dim = d;

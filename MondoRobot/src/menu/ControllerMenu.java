@@ -20,8 +20,16 @@ public class ControllerMenu implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
+		if(e.getActionCommand()=="Nuova Partita") {
+			this.v.SubMenu();
+		}
+		if(e.getActionCommand()=="Continua") {
+			//code
+		}//verificando che prende e aggiorna la variabile dal campo di testo
+		if(e.getActionCommand()=="Invia") {
+			m.setDim(v.getTextField());
+			System.out.println(m.getDim());
+		}
 	}
 }
 
