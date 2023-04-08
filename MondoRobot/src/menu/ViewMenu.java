@@ -10,16 +10,14 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JSeparator;
 import javax.swing.JTextField;
 
 public class ViewMenu implements PropertyChangeListener{
-	private JFrame frame, subFrame;
-	private JPanel panelCenter, panelSouth, subPanel;
-	private JLabel label, subLabel;
-	private JButton btnNew, btnContinue, subBtn;
-	private JTextField subField;
-	private JSeparator subSeparator;
+	private JFrame frame;
+	private JPanel panelCenter, panelSouth;
+	private JLabel label;
+	private JButton btnNew, btnContinue;
+	private SubMenu v2;
 	
 	public ViewMenu() 
 	{
@@ -29,7 +27,6 @@ public class ViewMenu implements PropertyChangeListener{
 		panelSouth = new JPanel();
 		label = new JLabel("Benvenuto!");
 		btnNew = new JButton("Nuova Partita");
-		subBtn = new JButton("Invia");
 		btnContinue = new JButton("Continua");
 		
 		//i componendi vengono messi nei panelli, che vengono messi nel frame
@@ -52,40 +49,70 @@ public class ViewMenu implements PropertyChangeListener{
 		frame.pack();
 		frame.setVisible(true);
 	}
+	public void CreaSubMenu(ControllerMenu controller) {
+		SubMenu v2 = new SubMenu();
+		this.v2 = v2;
+		v2.addListener(controller);
+		
+	}
 	
 	//subButton viene inizializzato prima per evitare un errore
 	//secondo me questo è sbagliato, da riguardare
-	public void SubMenu() {
-		this.subFrame = new JFrame();
-		this.subPanel = new JPanel(new GridLayout(0,2));
-		this.subLabel = new JLabel(" Inserisci la dimensione della mappa: ");
-		this.subField = new JTextField();
-		this.subSeparator = new JSeparator();
-
-
-		subPanel.add(subLabel);
-		subPanel.add(subField);
-		subPanel.add(subSeparator);
-		subPanel.add(subBtn);
-		subFrame.add(subPanel, BorderLayout.CENTER);
-		
-		subFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		subFrame.setLocationRelativeTo(frame);
-		subFrame.pack();
-		subFrame.setVisible(true);
-	}
 	public void addListener(ActionListener controller) {
 		this.btnNew.addActionListener(controller);
 		this.btnContinue.addActionListener(controller);
-		this.subBtn.addActionListener(controller);
 	}
 	//da fare ancora la verifica se è testo o no 
 	public int getTextField() {
-		return Integer.parseInt(this.subField.getText());
+		try {
+			return Integer.parseInt(this.v2.subField.getText());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return 0;
+	}
+	public void closeSubMenu() {
+		v2.subFrame.dispose();
 	}
 	@Override
 	public void propertyChange(PropertyChangeEvent evt) {
 		// TODO Auto-generated method stub
+		
+	}
+	public class SubMenu implements PropertyChangeListener{
+		private JFrame subFrame;
+		private JPanel subPanel;
+		private JLabel subLabel;
+		private JTextField subField;
+		private JButton subBtnBack, subBtnInvia;
+		
+		public SubMenu() {
+			this.subFrame = new JFrame();
+			this.subPanel = new JPanel(new GridLayout(0,2));
+			this.subLabel = new JLabel(" Inserisci la dimensione della mappa: ");
+			this.subField = new JTextField();
+			this.subBtnBack = new JButton("Indietro");
+			this.subBtnInvia = new JButton("Invia");
+
+			subPanel.add(subLabel);
+			subPanel.add(subField);
+			subPanel.add(subBtnBack);
+			subPanel.add(subBtnInvia);
+			subFrame.add(subPanel, BorderLayout.CENTER);
+			
+			subFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			subFrame.setLocationRelativeTo(frame);
+			subFrame.pack();
+			subFrame.setVisible(true);
+		}
+		public void addListener(ActionListener controller) {
+			this.subBtnBack.addActionListener(controller);
+			this.subBtnInvia.addActionListener(controller);
+		}
+		@Override
+		public void propertyChange(PropertyChangeEvent evt) {
+			// TODO Auto-generated method stub
+		}
 		
 	}
 	

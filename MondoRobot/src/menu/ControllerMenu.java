@@ -21,7 +21,7 @@ public class ControllerMenu implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand()=="Nuova Partita") {
-			this.v.SubMenu();
+			this.v.CreaSubMenu(this);;
 		}
 		if(e.getActionCommand()=="Continua") {
 			//code
@@ -29,6 +29,9 @@ public class ControllerMenu implements ActionListener{
 		if(e.getActionCommand()=="Invia") {
 			m.setDim(v.getTextField());
 			System.out.println(m.getDim());
+		}
+		if(e.getActionCommand()=="Indietro"){
+			this.v.closeSubMenu();
 		}
 	}
 }
