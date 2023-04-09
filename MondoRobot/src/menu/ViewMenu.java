@@ -1,6 +1,7 @@
 package menu;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
@@ -26,14 +27,19 @@ public class ViewMenu implements PropertyChangeListener{
 		panelCenter = new JPanel();
 		panelSouth = new JPanel();
 		label = new JLabel("Benvenuto!");
+		
 		btnNew = new JButton("Nuova Partita");
 		btnContinue = new JButton("Continua");
 		
-		//i componendi vengono messi nei panelli, che vengono messi nel frame
+		//assemblaggio dei panneli e configurazioni di dimensioni
 		panelCenter.add(label);
+		panelCenter.setPreferredSize(new Dimension(700,300));
+		
 		panelSouth.add(btnNew);
 		panelSouth.add(btnContinue);
+		panelSouth.setPreferredSize(new Dimension(100,100));
 
+		//assemblaggio del frame
 		frame.add(panelCenter, BorderLayout.CENTER);
 		frame.add(panelSouth,BorderLayout.SOUTH);
 		
@@ -45,9 +51,9 @@ public class ViewMenu implements PropertyChangeListener{
 		 * */
 		frame.setTitle("Mondo Robot");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLocationRelativeTo(null);
 		frame.pack();
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
 	}
 	public void CreaSubMenu(ControllerMenu controller) {
 		SubMenu v2 = new SubMenu();
@@ -56,13 +62,11 @@ public class ViewMenu implements PropertyChangeListener{
 		
 	}
 	
-	//subButton viene inizializzato prima per evitare un errore
-	//secondo me questo è sbagliato, da riguardare
 	public void addListener(ActionListener controller) {
 		this.btnNew.addActionListener(controller);
 		this.btnContinue.addActionListener(controller);
 	}
-	//da fare ancora la verifica se è testo o no 
+	//da fare la eccezione
 	public int getTextField() {
 		try {
 			return Integer.parseInt(this.v2.subField.getText());
@@ -100,10 +104,10 @@ public class ViewMenu implements PropertyChangeListener{
 			subPanel.add(subBtnInvia);
 			subFrame.add(subPanel, BorderLayout.CENTER);
 			
-			subFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			subFrame.setLocationRelativeTo(frame);
+			subFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			subFrame.pack();
 			subFrame.setVisible(true);
+			subFrame.setLocationRelativeTo(null);
 		}
 		public void addListener(ActionListener controller) {
 			this.subBtnBack.addActionListener(controller);

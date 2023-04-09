@@ -5,9 +5,12 @@ import menu.ViewMenu;
 public class MainTest {
 
 	public static void main(String[] args) {
-		//inizia modello, vista e poi utilizza entrambi per creare il controller
-		ModelMenu m = new ModelMenu();
-		ViewMenu v = new ViewMenu();
-		ControllerMenu c = new ControllerMenu(m,v);
+		/*Ho spostato la inizializzazione del modello e della vista
+		 * dentro al controller dal menu.
+		 * essendo il menu la prima cosa a inizializzare,
+		 * tanto vale inizializzarli dentro del costruttore dell controller
+		 * (secondo me)
+		 */
+		ControllerMenu c = new ControllerMenu();
 	}
 }

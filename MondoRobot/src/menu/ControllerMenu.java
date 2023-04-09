@@ -4,32 +4,35 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ControllerMenu implements ActionListener{
-	//il controller deve ricevere il modello e la vista cui deve controllare
 	private ModelMenu m;
 	private ViewMenu v;
 	
-	public ControllerMenu(ModelMenu model, ViewMenu view) {
-		this.m = model;
-		this.v = view;
+	public ControllerMenu() {
+		//inizio una nuova istanza dell modello e della vista
+		this.m = new ModelMenu();
+		this.v = new ViewMenu();
 		
 		//il controller deve "ascoltare" la vista per prendere la interazione con l'utente
+		//la vista ascolta il modello per il doppio riaggancio
 		v.addListener(this);
-		//la vista ascolta il modello per compiere il doppio aggancio (?)
 		m.addListener(this.v);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		//Inizia il sub menu
 		if(e.getActionCommand()=="Nuova Partita") {
 			this.v.CreaSubMenu(this);;
 		}
+		//ancora da implementare dopo aver una cartella con le risorse
 		if(e.getActionCommand()=="Continua") {
 			//code
-		}//verificando che prende e aggiorna la variabile dal campo di testo
+		}
+		//da fare il controlo se il numero è maggiore di 10 crea la matrice e dispose entrambi i menu
 		if(e.getActionCommand()=="Invia") {
 			m.setDim(v.getTextField());
-			System.out.println(m.getDim());
 		}
+		//chiude il submenu
 		if(e.getActionCommand()=="Indietro"){
 			this.v.closeSubMenu();
 		}
