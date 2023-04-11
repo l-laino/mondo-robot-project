@@ -1,6 +1,7 @@
 package menu;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
@@ -68,15 +69,17 @@ public class ViewMenu implements PropertyChangeListener{
 	}
 	//da fare la eccezione
 	public int getTextField() {
-		try {
-			return Integer.parseInt(this.v2.subField.getText());
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-		return 0;
+		return Integer.parseInt(this.v2.subField.getText());
 	}
 	public void closeSubMenu() {
 		v2.subFrame.dispose();
+	}
+	
+	public void errorLaunch(){
+		JLabel subError = new JLabel("Devi inserire un numero maggiore di 10.");
+		v2.subPanel.add(subError);
+		subError.setForeground(Color.red);
+		v2.subFrame.pack();
 	}
 	@Override
 	public void propertyChange(PropertyChangeEvent evt) {

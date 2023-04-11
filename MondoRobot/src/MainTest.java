@@ -1,6 +1,4 @@
 import menu.ControllerMenu;
-import menu.ModelMenu;
-import menu.ViewMenu;
 
 public class MainTest {
 

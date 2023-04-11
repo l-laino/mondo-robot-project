@@ -22,15 +22,24 @@ public class ControllerMenu implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		//Inizia il sub menu
 		if(e.getActionCommand()=="Nuova Partita") {
-			this.v.CreaSubMenu(this);;
+			this.v.CreaSubMenu(this);
 		}
 		//ancora da implementare dopo aver una cartella con le risorse
 		if(e.getActionCommand()=="Continua") {
-			//code
+			try {
+				//
+			} catch (Exception noSavedGame) {
+				// TODO: handle exception
+			}
 		}
 		//da fare il controlo se il numero è maggiore di 10 crea la matrice e dispose entrambi i menu
 		if(e.getActionCommand()=="Invia") {
-			m.setDim(v.getTextField());
+			try{
+				m.setDim(v.getTextField());
+				if(m.getDim() < 10) new Exception();
+			}catch(Exception invalidInput){
+				v.errorLaunch();
+			}
 		}
 		//chiude il submenu
 		if(e.getActionCommand()=="Indietro"){
