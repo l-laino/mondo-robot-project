@@ -1,5 +1,6 @@
 package components;
 
-public class ModelComponents {
-    
+public abstract class ModelComponents {
+    boolean atraversabile;
+    Boolean state;
 }
