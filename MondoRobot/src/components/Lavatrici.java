@@ -1,6 +1,6 @@
 package components;
 
-public class Lavatrici extends ModelComponents{
+public class Lavatrici extends Caselle{
     public Lavatrici(){
         super();
         this.atraversabile = false;
