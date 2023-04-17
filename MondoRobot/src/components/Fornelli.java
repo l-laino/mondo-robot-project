@@ -1,6 +1,6 @@
 package components;
 
-public class Fornelli extends ModelComponents{
+public class Fornelli extends Caselle{
     public  Fornelli(){
         super();
         this.atraversabile = false;
