@@ -1,4 +1,4 @@
-package mappa;
+package gameHandler;
 
 import javax.swing.JPanel;
 

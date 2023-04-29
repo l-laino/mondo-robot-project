@@ -1,12 +1,9 @@
 package mappa;
-
 import components.*;
-
 
 public class ControllerMappa {
     private ModelMappa m;
     
-
     public ControllerMappa(int dim){
         m = new ModelMappa(dim);
         createMap(m.mat, dim);
@@ -18,10 +15,10 @@ public class ControllerMappa {
             for (int y = 0; y < dim; y++)
             {
                 if (x == 0 || x == dim-1 || y == 0 || y == dim-1) {
-                    mat[x][y] = new Muro();
+                    m.setMat(x, y, new Muro());
 				}
 				else {
-					mat[x][y] = new Vuota();					
+                    m.setMat(x, y, new Vuota());				
 				}
              }
         }
@@ -40,7 +37,9 @@ public class ControllerMappa {
             return mat;
         }
         
-        
+        public void setMat(int x, int y, Caselle specialize){
+            this.mat[x][y] = specialize;
+        }
     }
 }
 

@@ -3,7 +3,7 @@ package components;
 public class Fornelli extends Caselle{
     public  Fornelli(){
         super();
-        this.atraversabile = false;
-        this.state = false;
+        this.setAtraversabile(false);
+        this.setState(false);
     }
 }
