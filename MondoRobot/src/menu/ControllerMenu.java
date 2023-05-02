@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
-import gameHandler.GameController;
+import game.ControllerGame;
 
 public class ControllerMenu implements ActionListener{
 	private ModelMenu m;
@@ -41,7 +41,7 @@ public class ControllerMenu implements ActionListener{
 			try{
 				m.setDim(v.getTextField());
 				if(m.getDim() < 10) new Exception();
-				new GameController();
+				new ControllerGame();
 			}catch(Exception invalidInput){
 				v.errorLaunch();
 			}

@@ -1,3 +1,4 @@
+package handlers;
 import java.awt.image.BufferedImage;
 
 public class PlayableHandler {

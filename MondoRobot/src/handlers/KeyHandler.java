@@ -1,8 +1,8 @@
-
+package handlers;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class KeyController implements KeyListener{
+public class KeyHandler implements KeyListener{
     private int code;
     private boolean up, down, left, right, pressed;
 

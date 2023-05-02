@@ -1,4 +1,4 @@
-package gameHandler;
+package game;
 
 import javax.swing.JPanel;
 
