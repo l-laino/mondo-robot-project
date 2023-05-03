@@ -44,11 +44,10 @@ public class ViewMenu implements PropertyChangeListener{
 		frame.add(panelCenter, BorderLayout.CENTER);
 		frame.add(panelSouth,BorderLayout.SOUTH);
 		
-		/*parte di "default"
+		/* parte di "default"
 		 * define il titolo dellpa aplicazione
 		 * definisce il mentodo di finalizzazione
 		 * definisce che viene aperto nel centro della pagina
-		 * 
 		 * */
 		frame.setTitle("Mondo Robot");
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

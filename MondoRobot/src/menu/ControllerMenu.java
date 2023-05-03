@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
-import gameHandler.GameController;
+import gameHandler.ControllerGame;
 
 public class ControllerMenu implements ActionListener{
 	private ModelMenu m;
@@ -41,7 +41,8 @@ public class ControllerMenu implements ActionListener{
 			try{
 				m.setDim(v.getTextField());
 				if(m.getDim() < 10) new Exception();
-				new GameController();
+				// Avvio il thread del conteggio dei secondi
+				new ControllerGame();						 
 			}catch(Exception invalidInput){
 				v.errorLaunch();
 			}
@@ -52,7 +53,7 @@ public class ControllerMenu implements ActionListener{
 		}
 	}
 	public class ModelMenu {
-		//campo dim per la creazione della matrice LxL per il mappa e support per assegnare i listener
+		//campo dim per la creazione della matrice LxL per la mappa e support per assegnare i listener
 		//e capire quando ci sia stato qualche cambiamento di parametro
 		private int dim;
 		private PropertyChangeSupport support;
