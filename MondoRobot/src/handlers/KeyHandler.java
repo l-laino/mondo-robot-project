@@ -1,9 +1,8 @@
-
-
+package handlers;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class KeyController implements KeyListener{
+public class KeyHandler implements KeyListener{
     private int code;
     private boolean up, down, left, right, pressed;
 
@@ -18,8 +17,8 @@ public class KeyController implements KeyListener{
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'keyPressed'");
     }
-
-    @Override 
+	
+	@Override
     public void KeyPressed(KeyEvent e) {
         setCode(e.getKeyCode());
         if ((getCode() == KeyEvent.VK_W || getCode() == KeyEvent.VK_UP) && isPressed() == false) {
