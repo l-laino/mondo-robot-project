@@ -41,7 +41,6 @@ public class ControllerMenu implements ActionListener{
 			try{
 				m.setDim(v.getTextField());
 				if(m.getDim() < 10) new Exception();
-				new ControllerGame();
 				// Avvio il thread del conteggio dei secondi
 				new ControllerGame();						 
 			}catch(Exception invalidInput){

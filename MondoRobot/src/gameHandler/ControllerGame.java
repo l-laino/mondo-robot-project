@@ -10,7 +10,7 @@ public class ControllerGame extends Thread{
     private int secondsLavatrice = 20;
    
 
-    public void ControllerGame () {
+    public ControllerGame () {
         // Se viene premuto "inizia" nel menu, viene inizializzato il thread con il timer 
         // per il conteggio del tempo (eventualmente lo si può fare vedere) al giocatore nella GUI 
 
