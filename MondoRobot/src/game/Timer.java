@@ -1,6 +1,6 @@
-package gameHandler;
+package game;
 
-public class ControllerGame extends Thread{
+public class Timer extends Thread{
     private int seconds = 0;
     private boolean isRunning = true;
     
@@ -9,14 +9,11 @@ public class ControllerGame extends Thread{
     private int secondsRubinetto = 12;
     private int secondsLavatrice = 20;
    
-
-    public ControllerGame () {
-        // Se viene premuto "inizia" nel menu, viene inizializzato il thread con il timer 
-        // per il conteggio del tempo (eventualmente lo si può fare vedere) al giocatore nella GUI 
-
-        runTimer();     // Avvio il thread
-
+    // Costruttore per il timer 
+    public Timer(){
+        runTimer();
     }
+
 
     public void runTimer() {
         this.isRunning = true;
@@ -36,6 +33,7 @@ public class ControllerGame extends Thread{
                 {
                     // Attivo la lavatrice dopo secondsLavatrice secondi
                 }
+                System.out.println("Secondi passati : "+seconds);
             } catch (InterruptedException e) {
                 System.out.println("Errore, il Thread è stato interrotto in modo anomalo");
                 break;

@@ -6,6 +6,7 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
 import game.ControllerGame;
+import menu.ViewMenu.SubMenu;
 
 public class ControllerMenu implements ActionListener{
 	private ModelMenu m;
@@ -36,13 +37,16 @@ public class ControllerMenu implements ActionListener{
 				// TODO: handle exception
 			}
 		}
-		//da fare il controlo se il numero è maggiore di 10 crea la matrice e dispose entrambi i menu
+		//da fare il controlo se il numero è maggiore di 10 crea la matrice e chiude entrambi i menu
 		if(e.getActionCommand()=="Invia") {
 			try{
 				m.setDim(v.getTextField());
 				if(m.getDim() < 10) new Exception();
-				// Avvio il thread del conteggio dei secondi
-				new ControllerGame();						 
+				// Avvio il thread del conteggio dei secondi e creo la mappa 
+				// new Timer();
+				System.out.println("Corretto");
+				this.v.closeSubMenu();
+				this.v.closeViewMenu(); 	//....................... NON VA ............................................chiudo il menu 
 			}catch(Exception invalidInput){
 				v.errorLaunch();
 			}
