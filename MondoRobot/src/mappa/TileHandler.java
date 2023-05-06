@@ -9,15 +9,15 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import javax.imageio.ImageIO;
-import game.ModelGameHandler;
+import game.ModelGame;
 import mappa.Tile;
 
 public class TileHandler {
-	ModelGameHandler gh;
+	ModelGame gh;
 	Tile[] tile;
 	int [][] mapTiles;
 	
-	public TileHandler(ModelGameHandler gp) {
+	public TileHandler(ModelGame gp) {
 		this.gh = gp;
 		this.tile = new Tile[10];
 		mapTiles = new int [gp.getHEIGHT()][gp.getWIDTH()];
