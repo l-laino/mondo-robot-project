@@ -6,11 +6,11 @@ import mappa.ControllerMappa.ModelMappa;
 import menu.ControllerMenu;
 import menu.ControllerMenu.ModelMenu;
 
-public class ModelGameHandler extends JPanel{       // Bisogna aggiungere implements Runnable per i metodi dei thread 
-     
-	private ModelMenu m;
-	
-    private final int TILESIZE = m.getDim() * m.getDim();
+public class ModelGame extends JPanel{       // Bisogna aggiungere implements Runnable per i metodi dei thread 
+    
+	private final int SIZE = 16;
+	private final int SCALE = 3;
+    private final int TILESIZE = SIZE * SCALE;
     private int dim;
     private int WIDTH;
     private int HEIGHT;

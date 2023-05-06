@@ -11,7 +11,7 @@ public class KeyHandler implements KeyListener{
     }
 
 	@Override			// QUESTO ERRORE NON CAPISCO COME RISOLVERLO .......
-    public void KeyPressed(KeyEvent e) {
+    public void keyPressed(KeyEvent e) {
         setCode(e.getKeyCode());
 
         if ((getCode() == KeyEvent.VK_W || getCode() == KeyEvent.VK_UP) && isPressed() == false) {
