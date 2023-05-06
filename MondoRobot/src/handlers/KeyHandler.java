@@ -8,19 +8,12 @@ public class KeyHandler implements KeyListener{
 
     @Override
     public void keyTyped(KeyEvent e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'keyTyped'");
     }
 
-    @Override
-    public void keyPressed(KeyEvent e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'keyPressed'");
-    }
-	
-	@Override
+	@Override			// QUESTO ERRORE NON CAPISCO COME RISOLVERLO .......
     public void KeyPressed(KeyEvent e) {
         setCode(e.getKeyCode());
+
         if ((getCode() == KeyEvent.VK_W || getCode() == KeyEvent.VK_UP) && isPressed() == false) {
 			setUp(true);
 			setPressed(true);
@@ -111,5 +104,4 @@ public class KeyHandler implements KeyListener{
 	public void setPressed(boolean pressed) {
 		this.pressed = pressed;
 	}
-
 }

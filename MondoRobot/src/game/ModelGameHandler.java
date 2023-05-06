@@ -2,12 +2,15 @@ package game;
 
 import javax.swing.JPanel;
 
+import mappa.ControllerMappa.ModelMappa;
 import menu.ControllerMenu;
 import menu.ControllerMenu.ModelMenu;
 
 public class ModelGameHandler extends JPanel{       // Bisogna aggiungere implements Runnable per i metodi dei thread 
      
-    private final int TILESIZE = ModelMenu.getDim() * ControllerMenu.getDim();
+	private ModelMenu m;
+	
+    private final int TILESIZE = m.getDim() * m.getDim();
     private int dim;
     private int WIDTH;
     private int HEIGHT;
