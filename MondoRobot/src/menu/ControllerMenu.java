@@ -47,7 +47,7 @@ public class ControllerMenu implements ActionListener{
 				System.out.println("Corretto");
 				this.v.closeSubMenu();
 				this.v.closeViewMenu(); 	//....................... NON VA ............................................chiudo il menu 
-				new ControllerGame();
+				new ControllerGame(this.m.getDim());
 			}catch(Exception invalidInput){
 				v.errorLaunch();
 			}

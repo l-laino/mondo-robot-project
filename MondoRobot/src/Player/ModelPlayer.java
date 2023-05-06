@@ -8,7 +8,7 @@ import javax.imageio.ImageIO;
 
 public class ModelPlayer {
     
-    public ModelPlayer(ModelGameHandler gp, KeyController keyH) {
+    public ModelPlayer(ModelGame gp, KeyController keyH) {
 		this.gp = gp;
 		this.keyH = keyH;
 		defaultValues();
