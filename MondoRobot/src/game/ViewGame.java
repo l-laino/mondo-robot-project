@@ -4,10 +4,10 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class ViewController extends JPanel{
+public class ViewGame extends JPanel{
     private JFrame window;
     private ControllerGame gc;
-    public ViewController(ControllerGame gc){
+    public ViewGame(ControllerGame gc){
         this.gc = gc;
 
         this.window = new JFrame("Mondo Robot");

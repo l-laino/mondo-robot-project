@@ -8,6 +8,7 @@ public class ControllerMappa {
         m = new ModelMappa(dim);
         createMap(m.mat, dim);
     }
+    
     public void createMap (Caselle [][] mat, int dim)
     {
         for (int x = 0; x < dim; x++)
@@ -26,10 +27,8 @@ public class ControllerMappa {
     
     public class ModelMappa {
         private Caselle mat[][];
-        private int dim;
     
         public ModelMappa(int dim) {
-            this.dim = dim;
             this.mat = new Caselle[dim][dim];
         }
 

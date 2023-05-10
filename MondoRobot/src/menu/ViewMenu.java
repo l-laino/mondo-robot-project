@@ -82,7 +82,7 @@ public class ViewMenu implements PropertyChangeListener {
 	}
 
 	public void errorLaunch() {
-		JLabel subError = new JLabel("Devi inserire un numero maggiore di 10.");
+		JLabel subError = new JLabel("Devi inserire un numero pari o maggiore di 10.");
 		v2.subPanel.add(subError);
 		subError.setForeground(Color.red);
 		v2.subFrame.pack();

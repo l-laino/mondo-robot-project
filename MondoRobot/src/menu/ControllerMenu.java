@@ -26,11 +26,11 @@ public class ControllerMenu implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		//Inizia il sub menu
-		if(e.getActionCommand()=="Nuova Partita") {
+		if(e.getActionCommand() == "Nuova Partita") {
 			this.v.CreaSubMenu(this);
 		}
 		//ancora da implementare dopo aver una cartella con le risorse
-		if(e.getActionCommand()=="Continua") {
+		if(e.getActionCommand() == "Continua") {
 			try {
 				//
 			} catch (Exception noSavedGame) {
@@ -38,22 +38,21 @@ public class ControllerMenu implements ActionListener{
 			}
 		}
 		//da fare il controlo se il numero è maggiore di 10 crea la matrice e chiude entrambi i menu
-		if(e.getActionCommand()=="Invia") {
+		if(e.getActionCommand() == "Invia") {
 			try{
 				m.setDim(v.getTextField());
-				if(m.getDim() < 10) new Exception();
-				// Avvio il thread del conteggio dei secondi e creo la mappa 
-				// new Timer();
-				System.out.println("Corretto");
-				this.v.closeSubMenu();
-				this.v.closeViewMenu(); 	//....................... NON VA ............................................chiudo il menu 
-				new ControllerGame(this.m.getDim());
+				if(m.getDim() < 10) throw new Exception(); 
+				else{
+					this.v.closeSubMenu();
+					this.v.closeViewMenu();
+					new ControllerGame(this.m.getDim());
+				}
 			}catch(Exception invalidInput){
 				v.errorLaunch();
 			}
 		}
 		//chiude il submenu
-		if(e.getActionCommand()=="Indietro"){
+		if(e.getActionCommand() == "Indietro"){
 			this.v.closeSubMenu();
 		}
 	}

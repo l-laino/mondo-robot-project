@@ -4,23 +4,25 @@ import java.awt.event.KeyListener;
 
 import Player.ControllerPlayer;
 import handlers.KeyHandler;
+import mappa.ControllerMappa;
 
 public class ControllerGame implements Runnable{
     private GameModel gm;
-    private ViewController gv;
+    private ViewGame gv;
     private KeyHandler kh;
-    private ControllerPlayer player;
-    
+    private ControllerMappa cm;
+    private ControllerPlayer player;    
 
     public ControllerGame(int dim){
         this.kh = new KeyHandler();
         this.gm = new GameModel(dim);
-        this.gv = new ViewController(this);
-        startGameThread();
+        this.gv = new ViewGame(this);
+        startGameThreads();
+        cm = new ControllerMappa(dim);
         this.player = new ControllerPlayer(this, this.kh);
     }
 
-    public void startGameThread() {
+    public void startGameThreads() {
         this.gm.gameThread = new Thread(this);
         this.gm.gameThread.start();
     }
